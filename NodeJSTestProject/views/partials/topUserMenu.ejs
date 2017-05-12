@@ -1,0 +1,44 @@
+<!--top menu-->
+<div style="position: fixed; top: 2px; right: 100px; z-index: 1000;font-family: 'PT Serif', serif;">
+    <!--<div style="position: absolute; top: 0px; background: green; z-index: 1000;font-family: 'PT Serif', serif; width: 100%">-->
+    <div class="topButton">
+        <a href="/">
+            <img class="img-responsive" style="height: 40px; width: 40px;display: inline-block; margin: auto"
+                 src="Images/interfaceImages/home.png"/>
+        </a>
+    </div>
+    <div class="topButton">
+        <img class="img-responsive" style="height: 40px; width: 40px;display: inline-block;"
+             src="Images/interfaceImages/cart.png"/>
+    </div>
+    <div class="topButton">
+        <div class="dropdown" style="display: inline-block">
+            <div type="button" class="dropdown-toggle" type="button" data-toggle="dropdown"
+                 style="display: inline-block">
+                <% if(user){ %>
+                <img class="img-responsive" style="height: 40px; width: 40px; display: inline-block; border-radius: 50%"
+                     src="images/userAvatars/<%= user.avatarFileName %>"/>
+
+                <p style="display: inline-block"> <%= user.username %> </p>
+                <% } else { %>
+                <img class="img-responsive" style="height: 40px; width: 40px; display: inline-block; border-radius: 50%"
+                     src="images/userAvatars/defaultAvatar.jpg"/>
+
+                <p style="display: inline-block"> My Account</p>
+                <% } %>
+                <span class="caret"></span>
+            </div>
+            <ul class="dropdown-menu">
+                <li><a href="profile/<%= user.username %>">View profile</a></li>
+                <li><a href="#">History</a></li>
+                <li class="divider"></li>
+                <% if(user) { %>
+                <li onclick="Logout()"><a href="#">Sign out</a></li>
+                <!--<li ><a href="logout    ">LogOut</a></li>-->
+                <% } else { %>
+                <li><a href="login">LogIn</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</div>

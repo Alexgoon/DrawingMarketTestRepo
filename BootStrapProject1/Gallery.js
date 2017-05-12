@@ -11,6 +11,10 @@ $(document).ready(function(){
 //    , parser = new DOMParser()
 //    , doc = parser.parseFromString(xmlString, "text/xml");
 
+function SomeMethod() {
+ alert("123");
+}
+
 
 window.onload = function() {
     var galCont = document.getElementById("galleryContainer");

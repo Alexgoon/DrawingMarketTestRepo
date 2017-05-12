@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+          media="screen">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdnjs.com/libraries/fancybox"></script>
+    <script type="text/javascript" src="javascripts/Gallery.js"></script>
+    <link rel="stylesheet" href="Gallery.css">
+    <link rel="stylesheet" href="stylesheets/topUserMenu.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat|Open+Sans+Condensed:300|PT+Serif"
+          rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="javascripts/partials/topUserMenu.js"></script>
+    <title>Gallery</title>
+</head>
+<body>
+
+<div class="container-fluid" style="font-family: 'Merriweather', serif">
+    <div style="background: #374541; height: 40px">
+    </div>
+    <% if(user) { %>
+    <p>
+        <%= user.username %>
+    </p>
+    <% } %>
+    <div class="container">
+        <input id="searchField" type="text" size="40" style="margin-top: 20px">
+        <button onclick="SomeMethod()">
+            Button
+        </button>
+        <div class="row">
+            <div class='list-group gallery' id="galleryContainer" style="width: 100%">
+
+                <% paintings.forEach(function(painting) { %>
+                <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
+                    <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
+                        <img class="img-responsive" alt="" src="<%= painting.path %>"/>
+
+                        <div class='text-right'>
+                            <small class='text-muted'>Image Title</small>
+                        </div> <!-- text-right / end -->
+                    </a>
+                </div> <!-- col-6 / end -->
+                <% }); %>
+
+            </div> <!-- list-group / end -->
+        </div> <!-- row / end -->
+    </div>
+    <%- include partials/topUserMenu.ejs %>
+</div>
+</body>
+</html>
+

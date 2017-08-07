@@ -10,7 +10,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdnjs.com/libraries/fancybox"></script>
     <script type="text/javascript" src="javascripts/Gallery.js"></script>
-    <link rel="stylesheet" href="Gallery.css">
     <link rel="stylesheet" href="stylesheets/topUserMenu.css">
     <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat|Open+Sans+Condensed:300|PT+Serif"
           rel="stylesheet">
@@ -39,8 +38,8 @@
 
                 <% paintings.forEach(function(painting) { %>
                 <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-                    <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-                        <img class="img-responsive" alt="" src="<%= painting.path %>"/>
+                    <a class="thumbnail fancybox" rel="ligthbox" href="/painting?paintingId=<%= painting._id %>">
+                        <img class="img-responsive" alt="" src="/images/paintings/<%= painting.fileName %>"/>
 
                         <div class='text-right'>
                             <small class='text-muted'>Image Title</small>

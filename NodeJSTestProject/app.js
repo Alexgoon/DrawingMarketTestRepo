@@ -11,6 +11,8 @@ var gallery = require('./routes/gallery');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
 var profile = require('./routes/profile');
+var painting = require('./routes/painting')
+var charge = require('./routes/charge')
 var connect = require('connect');
 //var User = require('../models/user');
 //var MongoStore = require("connect-mongo")(express);
@@ -18,44 +20,60 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 var multer = require('multer');
 
+
+
 //init paintins
 var Painting = require('./models/painting');
 
-var paintOne = new Painting({path: "http://localhost:3000/images/paintings/tmpImg1.jpg", tag: "Tag1"});
-paintOne.save(function (err) {
-    if (err)
-        console.log(err);
-});
-paintOne = new Painting({path: "http://localhost:3000/images/paintings/tmpImg1 (2).jpg", tag: "Tag1"});
-paintOne.save(function (err) {
-    if (err)
-        console.log(err);
-});
-paintOne = new Painting({path: "http://localhost:3000/images/paintings/tmpImg1 (3).jpg", tag: "Tag1"});
-paintOne.save(function (err) {
-    if (err)
-        console.log(err);
-});
-paintOne = new Painting({path: "http://localhost:3000/images/paintings/tmpImg1 (4).jpg", tag: "Tag1"});
-paintOne.save(function (err) {
-    if (err)
-        console.log(err);
-});
-paintOne = new Painting({path: "http://localhost:3000/images/paintings/tmpImg1 (5).jpg", tag: "Tag1"});
-paintOne.save(function (err) {
-    if (err)
-        console.log(err);
-});
-paintOne = new Painting({path: "http://localhost:3000/images/paintings/tmpImg1 (6).jpg", tag: "Tag1"});
-paintOne.save(function (err) {
-    if (err)
-        console.log(err);
-});
-paintOne = new Painting({path: "http://localhost:3000/images/paintings/tmpImg1 (7).jpg", tag: "Tag1"});
-paintOne.save(function (err) {
-    if (err)
-        console.log(err);
-});
+//var paintOne = new Painting({
+//    fileName: "tmpImg1.jpg",
+//    tags: ["tag1", "tag2", "tag3"],
+//    additionalImages: [{fileName: "tmpImg1 (2).jpg"}, {fileName: "tmpImg1 (3).jpg"}]
+//});
+//paintOne.save(function (err) {
+//    if (err)
+//        console.log(err);
+//});
+
+//var paintTwo = new Painting({
+//    fileName: "tmpImg1 (4).jpg",
+//    tags: ["tag1", "tag4", "tag5"],
+//    additionalImages: [{fileName: "tmpImg1 (5).jpg"}]
+//});
+//paintTwo.save(function (err) {
+//    if (err)
+//        console.log(err);
+//});
+//paintOne = new Painting({path: "http://localhost:3000/images/paintings/tmpImg1 (2).jpg", tag: "Tag1"});
+//paintOne.save(function (err) {
+//    if (err)
+//        console.log(err);
+//});
+//paintOne = new Painting({path: "http://localhost:3000/images/paintings/tmpImg1 (3).jpg", tag: "Tag1"});
+//paintOne.save(function (err) {
+//    if (err)
+//        console.log(err);
+//});
+//paintOne = new Painting({path: "http://localhost:3000/images/paintings/tmpImg1 (4).jpg", tag: "Tag1"});
+//paintOne.save(function (err) {
+//    if (err)
+//        console.log(err);
+//});
+//paintOne = new Painting({path: "http://localhost:3000/images/paintings/tmpImg1 (5).jpg", tag: "Tag1"});
+//paintOne.save(function (err) {
+//    if (err)
+//        console.log(err);
+//});
+//paintOne = new Painting({path: "http://localhost:3000/images/paintings/tmpImg1 (6).jpg", tag: "Tag1"});
+//paintOne.save(function (err) {
+//    if (err)
+//        console.log(err);
+//});
+//paintOne = new Painting({path: "http://localhost:3000/images/paintings/tmpImg1 (7).jpg", tag: "Tag1"});
+//paintOne.save(function (err) {
+//    if (err)
+//        console.log(err);
+//});
 
 //init paintins
 
@@ -104,6 +122,32 @@ app.use('/gallery', gallery);
 app.use('/login', login);
 app.use('/logout', logout);
 app.use('/profile', profile);
+app.use('/painting', painting);
+app.use('/charge', charge);
+
+//stripe
+//pp.get("/", function (req, res) {
+//    return res.render("index.pug", { keyPublishable: keyPublishable });
+//});
+
+//app.post("/charge", function (req, res) {
+//    var amount = 500;
+//    //TODO: get amount, get product price and compare
+//    stripe.customers.create({
+//        email: req.body.stripeEmail,
+//        source: req.body.stripeToken
+//    }).then(function (customer) {
+//        return stripe.charges.create({
+//            amount: amount,
+//            description: "Sample Charge",
+//            currency: "usd",
+//            customer: customer.id
+//        });
+//    }).then(function (charge) {
+//        return res.render("charge.ejs");
+//    });
+//});
+//stripe
 
 
 //<image upload>

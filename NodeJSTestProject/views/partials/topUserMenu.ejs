@@ -29,7 +29,9 @@
                 <span class="caret"></span>
             </div>
             <ul class="dropdown-menu">
+                <% if(user) { %>
                 <li><a href="profile/<%= user.username %>">View profile</a></li>
+                <% } %>
                 <li><a href="#">History</a></li>
                 <li class="divider"></li>
                 <% if(user) { %>
